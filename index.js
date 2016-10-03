@@ -34,13 +34,16 @@ function init() {
   // Load the hash on pageload, with method/parent/pathname, and load up the selected resource into the state
   const initialLinks = getNavLinks(state.resources$())
 
-  let [initAction, initParent, initPath] = url.parse(location.href).hash.replace('#', '').split(':')
-
-  if(initAction && initParent && initPath) {
+  if(url.parse(location.href).hash) {
+    let [initAction, initParent, initPath] = url.parse(location.href).hash.replace('#', '').split(':')
     let justLinkObjs = R.flatten(R.values(initialLinks)) // unnest all the links to find the current one
     let link = R.find(ln => ln.parent === initParent && ln.meth === initAction && ln.path === initPath, justLinkObjs)
     state.selectedLink$(link)
+  } else {
+    state.selectedLink$(false)
   }
+
+  flyd.map(x => console.log(x), state.selectedLink$)
 
   state.navLinks$ = flyd.merge(
     flyd.stream(initialLinks)
