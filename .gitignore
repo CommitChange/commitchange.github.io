@@ -1,4 +1,4 @@
 node_modules
-.npm-debug
+.npm-debug.log
 dist/
 build.css
