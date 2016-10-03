@@ -33,7 +33,9 @@ function init() {
 
   // Load the hash on pageload, with method/parent/pathname, and load up the selected resource into the state
   const initialLinks = getNavLinks(state.resources$())
+
   let [initAction, initParent, initPath] = url.parse(location.href).hash.replace('#', '').split(':')
+
   if(initAction && initParent && initPath) {
     let justLinkObjs = R.flatten(R.values(initialLinks)) // unnest all the links to find the current one
     let link = R.find(ln => ln.parent === initParent && ln.meth === initAction && ln.path === initPath, justLinkObjs)
@@ -45,6 +47,10 @@ function init() {
   , flyd.map(getNavLinks, state.resources$) 
   )
 
+  state.clickHideMenu$ = flyd.stream()
+
+  state.hideMenu$ = flyd.map(x => x, flyd.merge(state.selectedLink$, state.clickHideMenu$)) 
+
   // cache to localStorage
   flyd.map(
     r => localStorage.setItem('resources$', JSON.stringify(r))
@@ -55,7 +61,7 @@ function init() {
 }
 
 function view(state) {
-  return h('div.container.flex.items-stretch.fullHeight', [
+  return h('div.container.fullHeight.p2', [
     nav(state)
   , details(state)
   ])

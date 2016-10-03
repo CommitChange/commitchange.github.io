@@ -13,7 +13,8 @@ html {
   background: rgba(0,0,0,0.02);
 }
 
-a {
+a,
+.menu {
   color: #0092a7;
 }
 
@@ -35,13 +36,12 @@ td {
 }
 
 table {
-  font-size: 16px;
+  font-size: inherit;
 }
 
 .grey {
   color: rgba(0,0,0,0.5);
 }
-
 
 pre {
   overflow: auto;
@@ -57,7 +57,120 @@ pre {
   font-family: 'Roboto Mono', monospace;
 }
 
+.ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+nav {
+  width: 220px;
+  display: inline-block;
+}
+
 article {
+  width: calc(100% - 220px);
+  display: inline-block;
+}
+
+.menu {
+  display: none;
 }
 
 
+
+@media screen and (max-width: 600px) {
+  nav,
+  article {
+    width: 100%;
+  }
+
+  .container article {
+    padding-left: 0;
+    float: none;
+    padding-top: 60px;
+  }
+
+  nav {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    box-shadow: 1px 1px 10px rgba(0,0,0,0.1);
+  }
+
+  nav header {
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+    background: white;
+  }
+
+  nav section {
+    padding-top: 1.5rem;
+    background: white;
+  }
+
+  nav header hr {
+    display: none;
+  }
+
+  nav img,
+  nav .menu {
+    display: table-cell;
+    vertical-align: middle;
+  }
+
+  nav img {
+    width: 150px;
+    float: right;
+    padding: 5px;
+  }
+
+  nav header {
+    display: table;
+    width: 100%;
+  }
+
+  .menu {
+    height: 32px;
+    width: 32px;
+    text-align: center;
+    background: white;
+    cursor: pointer;
+  }
+
+  .menu span {
+    height: 100%;
+    width: 100%;
+    user-select: none;
+  }
+
+  .menu span:nth-of-type(1) {
+    font-size: 16px;
+    display: none;
+  }
+
+  .menu span:nth-of-type(2) {
+    font-size: 24px;
+  }
+
+  .hideNav .menu span:nth-of-type(2) {
+    display: none;
+  }
+
+  .hideNav .menu span:nth-of-type(1) {
+    display: initial;
+  }
+
+  .hideNav section {
+    display: none;
+  }
+
+  nav {
+    height: 100%;
+    background: white;
+  }
+
+  .hideNav {
+    height: initial;
+  }
+}
