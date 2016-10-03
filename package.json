@@ -4,11 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev-js": "budo index.js --live --open -- -t [babelify --presets babel-preset-es2015]",
+    "watch-js": "budo index.js --live --open -- -t [babelify --presets babel-preset-es2015]",
     "watch-css": "postcss -c postcss.watch.js -w -l",
     "build-css": "postcss -c postcss.build.js -m file -l",
     "build-js": "browserify index.js -o dist/index.js -t [babelify --presets es2015] && uglifyjs dist/index.js -o dist/index.js --source-map dist/index.js.map -c -m -v",
-    "prepublish": "rm -rf dist && mkdir dist && cp index.html dist/ && npm run build-css && npm run build-js"
+    "prepublish": "mv index.html dist/ && npm run build-css && npm run build-js"
   },
   "author": "jay r bolton <jayrbolton@gmail.com> (http://jayrbolton.com/)",
   "license": "UNLICENSED",
