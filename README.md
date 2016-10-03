@@ -1,0 +1,2 @@
+- This repo only contains the build files for the API docs.
+- These build files get generated from the [`docs-builder`](https://github.com/CommitChange/docs-builder) repo.
