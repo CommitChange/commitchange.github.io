@@ -62,7 +62,7 @@ function init() {
 }
 
 function view(state) {
-  return h('div.container.p2', [
+  return h('div.container.relative.p2', [
     nav(state)
   , details(state)
   ])

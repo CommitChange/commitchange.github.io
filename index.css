@@ -64,13 +64,13 @@ pre {
 }
 
 nav {
-  width: 220px;
+  width: 300px;
   height: 100%;
   display: inline-block;
 }
 
 article {
-  width: calc(100% - 220px);
+  width: calc(100% - 300px);
   display: inline-block;
 }
 
@@ -80,6 +80,10 @@ article {
 
 nav img {
   cursor: pointer;
+}
+
+nav li a {
+  letter-spacing: 0;
 }
 
 
