@@ -12,6 +12,7 @@ import getApiData from './lib/get-api-data'
 import getNavLinks from './lib/get-nav-links'
 import nav from './lib/nav'
 import details from './lib/details'
+import sortObjByKey from './lib/sort-obj-by-key'
 
 function init() {
   let state = {
@@ -29,9 +30,14 @@ function init() {
 
   // Load resource data from either localStorage cache or from Ajax requests
   const cachedRes = parseJSON(localStorage.getItem('resources$'))
-  state.resources$ = cachedRes ? flyd.stream(cachedRes) : getApiData()
 
-  // Load the hash on pageload, with method/parent/pathname, and load up the selected resource into the state
+  const unsortedResources$ = cachedRes ? flyd.stream(cachedRes) : getApiData()
+
+
+  // sorts the resource names alphabetically 
+  state.resources$ = flyd.map(sortObjByKey, unsortedResources$)
+
+  // Load the hash on page load, with method/parent/pathname, and load up the selected resource into the state
   const initialLinks = getNavLinks(state.resources$())
 
   if(url.parse(location.href).hash) {
