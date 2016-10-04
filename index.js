@@ -43,8 +43,6 @@ function init() {
     state.selectedLink$(false)
   }
 
-  flyd.map(x => console.log(x), state.selectedLink$)
-
   state.navLinks$ = flyd.merge(
     flyd.stream(initialLinks)
   , flyd.map(getNavLinks, state.resources$) 
@@ -64,7 +62,7 @@ function init() {
 }
 
 function view(state) {
-  return h('div.container.fullHeight.p2', [
+  return h('div.container.p2', [
     nav(state)
   , details(state)
   ])
