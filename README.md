@@ -1,5 +1,5 @@
 ## Getting started
-- all developing should happen on the `dev` branch so the first step is to `git checkout dev`
+- all developing should happen on the `dev` branch so the first step is to `git checkout -b dev origin/dev`
 - `npm install`
 - `npm install budo -g` ([budo](https://www.npmjs.com/package/budo) is used for livereload)
 - `npm run watch-css` (runs [postcss](https://github.com/postcss/postcss))
