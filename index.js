@@ -20,7 +20,7 @@ function init() {
   , selectedLink$: flyd.stream()
   }
 
-  state.introMD$ = flyd.map(r => r.response, request({method: 'get' , path: 'intro.md' }).load)
+  state.introMD$ = flyd.map(r => r.response, request({method: 'get' , path: 'markdown/intro.md' }).load)
 
   // Clear cache and reload page
   flyd.map(
