@@ -4,11 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "watch-js": "budo index.js --live --open -- -t [babelify --presets babel-preset-es2015]",
-    "watch-css": "postcss -c postcss.watch.js -w -l",
-    "build-css": "postcss -c postcss.build.js -m file -l",
-    "build-js": "browserify index.js -o dist/index.js -t [babelify --presets es2015] && uglifyjs dist/index.js -o dist/index.js --source-map dist/index.js.map -c -m -v",
-    "prepublish": "mkdir -p dist && cp cc-logo.png dist/ && cp index.html dist/ && npm run build-css && npm run build-js"
+    "budo": "budo index.js --live -- -t babelify",
+    "postcss": "postcss -c postcss.js -w -l",
+    "build": "./build.sh"
   },
   "author": "jay r bolton <jayrbolton@gmail.com> (http://jayrbolton.com/)",
   "license": "UNLICENSED",
@@ -23,14 +21,16 @@
     "url": "0.11.0"
   },
   "devDependencies": {
+    "@commitchange/commons.css": "0.0.7",
     "autoprefixer": "6.4.1",
-    "css-mother-starter": "0.0.21",
+    "babel-preset-es2015": "6.16.0",
+    "babelify": "7.3.0",
+    "browserify": "13.1.0",
+    "budo": "^9.3.0",
     "cssnano": "3.7.5",
     "postcss-cli": "2.6.0",
     "postcss-import": "8.1.2",
-    "uglify-js": "2.7.3",
-    "babel-preset-es2015": "6.16.0",
-    "babelify": "7.3.0",
-    "browserify": "13.1.0"
+    "precss": "^1.4.0",
+    "uglify-js": "2.7.3"
   }
 }

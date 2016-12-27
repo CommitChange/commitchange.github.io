@@ -1,4 +1,4 @@
-@import 'css-mother-starter';
+@import '@commitchange/commons.css';
 
 html {
   font-size: 16px;

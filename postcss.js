@@ -3,8 +3,8 @@
 module.exports = {
   use: ['postcss-import', 'autoprefixer', 'cssnano']
 , 'local-plugins' : true
-, 'autoprefixers' : {browsers: 'last 2'}
+, 'autoprefixer' : {browsers: 'last 2 versions'}
 , input: 'index.css'
-, output: 'dist/build.css'
+, output: 'build.css'
 }
 
