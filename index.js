@@ -20,6 +20,8 @@ function init() {
   , selectedLink$: flyd.stream()
   }
 
+  state.introMD$ = flyd.map(r => r.response, request({method: 'get' , path: 'markdown/intro.md' }).load)
+
   // Clear cache and reload page
   flyd.map(
     ev => {
@@ -68,7 +70,7 @@ function init() {
 }
 
 function view(state) {
-  return h('div.container.relative.p2', [
+  return h('div.container.relative.p-2', [
     nav(state)
   , details(state)
   ])
