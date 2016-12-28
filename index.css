@@ -5,9 +5,6 @@ html {
   font-family: 'Roboto', sans-serif;
 }
 
-.bg-blue {
-  background: #0092a7;
-}
 
 .bg-grey {
   background: rgba(0,0,0,0.02);
@@ -18,33 +15,14 @@ a,
   color: #0092a7;
 }
 
+a:hover,
+.menu:hover {
+  opacity: 0.8;
+}
+
+.active,
 .bg-blue--light {
   background: rgba(0, 146, 167, 0.1)
-}
-
-.active {
-  position: relative;
-}
-
-.active:before {
-  position: absolute;
-  left:0;
-  top: 0;
-  content: '';
-  width: 3px;
-  height: 100%;
-  background: #0092a7;
-}
-
-nav li {
-  line-height: 1.2;
-  margin: 0 0 .5rem 0;
-  padding-left: .25rem;
-}
-
-nav li a {
-  color: black;
-  padding-left: .25rem;
 }
 
 .border {
@@ -86,6 +64,27 @@ pre {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+.navLinkParent .navLinkSub {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: .2s ease;
+}
+
+.navLinkParent.isOpen .navLinkSub {
+  opacity: 1;
+  max-height: 300px;
+}
+.navLinkParent .arrow {
+  display: inline-block;
+  transition: .2s ease;
+}
+
+.navLinkParent.isOpen .arrow {
+  transform: rotate(-90deg);
+}
+
 
 nav {
   width: 300px;

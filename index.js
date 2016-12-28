@@ -56,6 +56,10 @@ function init() {
   , flyd.map(getNavLinks, state.resources$) 
   )
 
+  const selectedNavParent$ = flyd.map(x => x.parent, state.selectedLink$)
+
+  state.openNavLinks$ = flyd.stream([selectedNavParent$])
+
   state.clickShowMenu$ = flyd.stream()
 
   state.showMenu$ = flyd.merge(
