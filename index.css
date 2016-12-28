@@ -113,7 +113,7 @@ nav li a {
   }
 
   nav section {
-    padding-top: 1.5rem;
+    padding: 1rem .5rem 0 .5rem;
     background: white;
   }
 
@@ -121,7 +121,7 @@ nav li a {
     display: none;
   }
 
-  nav img,
+  nav a.title,
   nav .menu {
     display: table-cell;
     vertical-align: middle;
@@ -158,7 +158,7 @@ nav li a {
   }
 
   .menu span:nth-of-type(2) {
-    font-size: 24px;
+    font-size: 16px;
   }
 
   .hideNav .menu span:nth-of-type(2) {

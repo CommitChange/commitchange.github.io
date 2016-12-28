@@ -58,7 +58,7 @@ function init() {
 
   state.clickHideMenu$ = flyd.stream()
 
-  state.hideMenu$ = flyd.map(x => x, flyd.merge(state.selectedLink$, state.clickHideMenu$)) 
+  state.hideMenu$ = flyd.merge(state.selectedLink$, state.clickHideMenu$)
 
   // cache to localStorage
   flyd.map(
@@ -70,7 +70,7 @@ function init() {
 }
 
 function view(state) {
-  return h('div.container.relative.p-2', [
+  return h('div.container.relative.p-2.sm-p-1', [
     nav(state)
   , details(state)
   ])
