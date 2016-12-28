@@ -26,9 +26,10 @@ function init() {
   flyd.map(
     ev => {
       localStorage.removeItem('resources$')
-      location.reload()
+      location.href = ''
     }
   , state.refreshOptions$)
+
 
   // Load resource data from either localStorage cache or from Ajax requests
   const cachedRes = parseJSON(localStorage.getItem('resources$'))
@@ -58,7 +59,7 @@ function init() {
 
   const selectedNavParent$ = flyd.map(x => x.parent, state.selectedLink$)
 
-  state.openNavLinks$ = flyd.stream([selectedNavParent$])
+  state.openNavLinks$ = flyd.stream([selectedNavParent$()])
 
   state.clickShowMenu$ = flyd.stream()
 

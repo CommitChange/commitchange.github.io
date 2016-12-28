@@ -78,11 +78,12 @@ pre {
 }
 .navLinkParent .arrow {
   display: inline-block;
+  transform: rotate(-90deg);
   transition: .2s ease;
 }
 
 .navLinkParent.isOpen .arrow {
-  transform: rotate(-90deg);
+  transform: rotate(0deg);
 }
 
 
@@ -119,7 +120,7 @@ nav li a {
   .container article {
     padding-left: 0;
     float: none;
-    padding-top: 52px;
+    padding-top: 62px;
   }
 
   nav {
@@ -153,8 +154,7 @@ nav li a {
   }
 
   nav a.title {
-    text-align: right;
-    padding-right: .5rem;
+    padding-left: .5rem;
   }
 
 
@@ -175,19 +175,19 @@ nav li a {
     user-select: none;
   }
 
-  nav span:nth-of-type(1) {
+  nav .hamburger {
     display: initial;
   }
 
-  nav span:nth-of-type(2) {
+  nav .close {
     display: none;
   }
 
-  nav.showMenu span:nth-of-type(1) {
+  nav.showMenu .hamburger {
     display: none;
   }
 
-  nav.showMenu span:nth-of-type(2) {
+  nav.showMenu .close {
     display: initial;
   }
 
@@ -208,10 +208,7 @@ nav li a {
   }
 
   .container article {
-    padding-top: 42px;
-  }
-  nav a.title {
-    padding-right: .25rem;
+    padding-top: 52px;
   }
 }
 
