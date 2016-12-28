@@ -18,9 +18,33 @@ a,
   color: #0092a7;
 }
 
-.active,
 .bg-blue--light {
-  background: rgba(0, 146, 167, 0.07)
+  background: rgba(0, 146, 167, 0.1)
+}
+
+.active {
+  position: relative;
+}
+
+.active:before {
+  position: absolute;
+  left:0;
+  top: 0;
+  content: '';
+  width: 3px;
+  height: 100%;
+  background: #0092a7;
+}
+
+nav li {
+  line-height: 1.2;
+  margin: 0 0 .5rem 0;
+  padding-left: .25rem;
+}
+
+nav li a {
+  color: black;
+  padding-left: .25rem;
 }
 
 .border {
@@ -96,7 +120,7 @@ nav li a {
   .container article {
     padding-left: 0;
     float: none;
-    padding-top: 60px;
+    padding-top: 52px;
   }
 
   nav {
@@ -108,11 +132,13 @@ nav li a {
   }
 
   nav header {
+    padding: .5rem;
     border-bottom: 1px solid rgba(0,0,0,0.2);
-    background: white;
+    background: #f5f5f5;
   }
 
   nav section {
+    display: none;
     padding: 1rem .5rem 0 .5rem;
     background: white;
   }
@@ -127,11 +153,11 @@ nav li a {
     vertical-align: middle;
   }
 
-  nav img {
-    width: 150px;
-    float: right;
-    padding: 5px;
+  nav a.title {
+    text-align: right;
+    padding-right: .5rem;
   }
+
 
   nav header {
     display: table;
@@ -139,46 +165,55 @@ nav li a {
   }
 
   .menu {
+    font-size: 20px;
     height: 32px;
     width: 32px;
     text-align: center;
-    background: white;
     cursor: pointer;
   }
 
   .menu span {
-    height: 100%;
-    width: 100%;
     user-select: none;
   }
 
-  .menu span:nth-of-type(1) {
-    font-size: 16px;
-    display: none;
-  }
-
-  .menu span:nth-of-type(2) {
-    font-size: 16px;
-  }
-
-  .hideNav .menu span:nth-of-type(2) {
-    display: none;
-  }
-
-  .hideNav .menu span:nth-of-type(1) {
+  nav span:nth-of-type(1) {
     display: initial;
   }
 
-  .hideNav section {
+  nav span:nth-of-type(2) {
     display: none;
   }
 
-  nav {
+  nav.showMenu span:nth-of-type(1) {
+    display: none;
+  }
+
+  nav.showMenu span:nth-of-type(2) {
+    display: initial;
+  }
+
+  .showMenu section {
+    display: block;
+  }
+
+  .showMenu {
     height: 100%;
     background: white;
   }
+}
 
-  .hideNav {
-    height: initial;
+
+@media screen and (max-width: 480px) {
+  nav header {
+    padding: .25rem;
+  }
+
+  .container article {
+    padding-top: 42px;
+  }
+  nav a.title {
+    padding-right: .25rem;
   }
 }
+
+

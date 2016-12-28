@@ -56,15 +56,19 @@ function init() {
   , flyd.map(getNavLinks, state.resources$) 
   )
 
-  state.clickHideMenu$ = flyd.stream()
+  state.clickShowMenu$ = flyd.stream()
 
-  state.hideMenu$ = flyd.merge(state.selectedLink$, state.clickHideMenu$)
+  state.showMenu$ = flyd.merge(
+      flyd.map(() => false, state.selectedLink$)
+    , state.clickShowMenu$)
 
   // cache to localStorage
   flyd.map(
     r => localStorage.setItem('resources$', JSON.stringify(r))
   , state.resources$ 
   )
+
+  window.state = state
 
   return state
 }
