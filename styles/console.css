@@ -1,0 +1,24 @@
+.console {
+  transition: .2s ease;
+  height: 0;
+}
+
+.console.isOpen {
+  height: calc(80% - 48px);
+}
+
+.console-input {
+  padding-left: 15.5rem;
+}
+
+.console-tab {
+  position: absolute;
+  line-height: 32px;
+  top: -32px;
+  padding: 0 .5rem;
+  right: 1rem;
+  border-radius: 3px 3px 0 0;
+  box-shadow: 0 -2px 3px 0px rgba(0,0,0,.15);
+}
+
+

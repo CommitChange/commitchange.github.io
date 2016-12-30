@@ -1,0 +1,33 @@
+nav {
+  width: 300px;
+  height: 100%;
+  display: inline-block;
+  overflow-y: auto;
+}
+
+.navLinkParent .navLinkSub {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: .2s ease;
+}
+
+.navLinkParent.isOpen .navLinkSub {
+  opacity: 1;
+  max-height: 300px;
+}
+.navLinkParent .arrow {
+  display: inline-block;
+  transform: rotate(-90deg);
+  transition: .2s ease;
+}
+
+.navLinkParent.isOpen .arrow { transform: rotate(0deg); }
+
+.menu { display: none; }
+
+nav img { cursor: pointer; }
+
+nav li a { letter-spacing: 0; }
+
+

@@ -12,6 +12,7 @@ import getApiData from './lib/get-api-data'
 import getNavLinks from './lib/get-nav-links'
 import nav from './lib/nav'
 import details from './lib/details'
+import console from './lib/console'
 import sortObjByKey from './lib/sort-obj-by-key'
 
 function init() {
@@ -73,6 +74,8 @@ function init() {
   , state.resources$ 
   )
 
+  state.openConsole$ = flyd.stream()
+
   window.state = state
 
   return state
@@ -82,6 +85,7 @@ function view(state) {
   return h('div.container.relative.p-2.sm-p-1', [
     nav(state)
   , details(state)
+  , console(state)
   ])
 }
 

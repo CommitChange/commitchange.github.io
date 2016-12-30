@@ -1,49 +1,26 @@
 @import '@commitchange/commons.css';
+@import 'styles/console';
+@import 'styles/nav';
 
 html {
   font-size: 16px;
   font-family: 'Roboto', sans-serif;
 }
 
-
-.bg-grey {
-  background: rgba(0,0,0,0.02);
-}
-
 a,
-.menu {
+button {
   color: #0092a7;
 }
 
 a:hover,
-.menu:hover {
-  opacity: 0.8;
+button:hover { 
+  opacity: 0.8; 
 }
 
 .active,
-.bg-blue--light {
-  background: rgba(0, 146, 167, 0.1)
-}
+.bg-blue--light { background: rgba(0, 146, 167, 0.1) }
 
-.border {
-  border: 1px solid rgb(208,208,208);
-}
-
-tr:not(:last-of-type) {
-  border-bottom: 1px solid rgb(208,208,208);
-}
-
-td {
-  vertical-align: top;
-}
-
-table {
-  font-size: inherit;
-}
-
-.grey {
-  color: rgba(0,0,0,0.5);
-}
+.bg-blue { background: #0092a7; }
 
 pre {
   overflow: auto;
@@ -51,65 +28,12 @@ pre {
   word-wrap: break-word;   
 }
 
-.white {
-  color: white;
-}
-
-.mono {
-  font-family: 'Roboto Mono', monospace;
-}
-
-.ellipsis {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.navLinkParent .navLinkSub {
-  overflow: hidden;
-  max-height: 0;
-  opacity: 0;
-  transition: .2s ease;
-}
-
-.navLinkParent.isOpen .navLinkSub {
-  opacity: 1;
-  max-height: 300px;
-}
-.navLinkParent .arrow {
-  display: inline-block;
-  transform: rotate(-90deg);
-  transition: .2s ease;
-}
-
-.navLinkParent.isOpen .arrow {
-  transform: rotate(0deg);
-}
-
-
-nav {
-  width: 300px;
-  height: 100%;
-  display: inline-block;
-}
+.mono { font-family: 'Roboto Mono', monospace; }
 
 article {
   width: calc(100% - 300px);
   display: inline-block;
 }
-
-.menu {
-  display: none;
-}
-
-nav img {
-  cursor: pointer;
-}
-
-nav li a {
-  letter-spacing: 0;
-}
-
 
 @media screen and (max-width: 600px) {
   nav,
@@ -134,7 +58,7 @@ nav li a {
   nav header {
     padding: .5rem;
     border-bottom: 1px solid rgba(0,0,0,0.2);
-    background: #f5f5f5;
+    background: white;
   }
 
   nav section {
@@ -143,9 +67,7 @@ nav li a {
     background: white;
   }
 
-  nav header hr {
-    display: none;
-  }
+  nav header hr { display: none; }
 
   nav a.title,
   nav .menu {
@@ -153,10 +75,7 @@ nav li a {
     vertical-align: middle;
   }
 
-  nav a.title {
-    padding-left: .5rem;
-  }
-
+  nav a.title { padding-left: .5rem; }
 
   nav header {
     display: table;
@@ -171,29 +90,17 @@ nav li a {
     cursor: pointer;
   }
 
-  .menu span {
-    user-select: none;
-  }
+  .menu span { user-select: none; }
 
-  nav .hamburger {
-    display: initial;
-  }
+  nav .hamburger { display: initial; }
 
-  nav .close {
-    display: none;
-  }
+  nav .close { display: none; }
 
-  nav.showMenu .hamburger {
-    display: none;
-  }
+  nav.showMenu .hamburger { display: none; }
 
-  nav.showMenu .close {
-    display: initial;
-  }
+  nav.showMenu .close { display: initial; }
 
-  .showMenu section {
-    display: block;
-  }
+  .showMenu section { display: block; }
 
   .showMenu {
     height: 100%;
@@ -203,13 +110,9 @@ nav li a {
 
 
 @media screen and (max-width: 480px) {
-  nav header {
-    padding: .25rem;
-  }
+  nav header { padding: .25rem; }
 
-  .container article {
-    padding-top: 52px;
-  }
+  .container article { padding-top: 52px; }
 }
 
 
