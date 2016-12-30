@@ -62,6 +62,10 @@ function init() {
 
   state.openNavLinks$ = flyd.stream([selectedNavParent$()])
 
+  state.consoleQuery$ = flyd.stream()
+
+  state.consoleQueryResponse$ = flyd.map(getConsoleQuery, state.consoleQuery$)
+
   state.clickShowMenu$ = flyd.stream()
 
   state.showMenu$ = flyd.merge(
@@ -74,11 +78,20 @@ function init() {
   , state.resources$ 
   )
 
+
   state.openConsole$ = flyd.stream()
 
   window.state = state
 
   return state
+}
+
+
+const getConsoleQuery = ev => {
+  ev.preventDefault()
+  const path = '/' + ev.target.querySelector('input').value 
+  const url = "https://api.commitchange.com"
+  return request({method: 'get', url, path}).load 
 }
 
 function view(state) {
