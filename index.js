@@ -7,12 +7,14 @@ import render from 'ff-core/render'
 import request from 'flyd-ajax'
 import flyd_flatMap from 'flyd/module/flatmap'
 import flyd_mergeAll from 'flyd/module/mergeall'
+import beautifyJSON from 'json-beautify'
+
 import parseJSON from './lib/parse-json'
 import getApiData from './lib/get-api-data'
 import getNavLinks from './lib/get-nav-links'
 import nav from './lib/nav'
 import details from './lib/details'
-import console from './lib/console'
+import queryConsole from './lib/console'
 import sortObjByKey from './lib/sort-obj-by-key'
 
 function init() {
@@ -64,7 +66,9 @@ function init() {
 
   state.consoleQuery$ = flyd.stream()
 
-  state.consoleQueryResponse$ = flyd.map(getConsoleQuery, state.consoleQuery$)
+  state.consoleQueryResponse$ = flyd.merge(
+    flyd.stream({})
+  , flyd_flatMap(getConsoleQuery, state.consoleQuery$))
 
   state.clickShowMenu$ = flyd.stream()
 
@@ -78,7 +82,6 @@ function init() {
   , state.resources$ 
   )
 
-
   state.openConsole$ = flyd.stream()
 
   window.state = state
@@ -89,7 +92,7 @@ function init() {
 
 const getConsoleQuery = ev => {
   ev.preventDefault()
-  const path = '/' + ev.target.querySelector('input').value 
+  const path = '/' + ev.target.querySelector('input').value.trim()
   const url = "https://api.commitchange.com"
   return request({method: 'get', url, path}).load 
 }
@@ -98,7 +101,7 @@ function view(state) {
   return h('div.container.relative.p-2.sm-p-1', [
     nav(state)
   , details(state)
-  , console(state)
+  , queryConsole(state)
   ])
 }
 

@@ -4,7 +4,7 @@
 }
 
 .console.isOpen {
-  height: calc(80% - 48px);
+  height: calc(100% - 48px);
 }
 
 .console-input {

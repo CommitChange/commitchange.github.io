@@ -15,10 +15,8 @@
     "flyd": "0.2.2",
     "flyd-ajax": "0.2.0",
     "flyd-url": "0.0.1",
-    "json-stringify-pretty-compact": "^1.0.2",
     "json-to-table": "4.0.0",
     "marked": "0.3.6",
-    "pretty-js": "^0.1.8",
     "ramda": "0.22.1",
     "snabbdom": "0.5.3",
     "url": "0.11.0"
