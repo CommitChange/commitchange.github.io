@@ -1,24 +1,39 @@
 .console {
   transition: .2s ease;
-  height: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  left: 100%;
+  overflow-y: scroll;
 }
 
 .console.isOpen {
-  height: calc(100% - 48px);
+  left: 0;
+  width: 100%;
 }
 
 .console-input {
   padding-left: 15.5rem;
 }
 
-.console-tab {
-  position: absolute;
-  line-height: 32px;
-  top: -32px;
-  padding: 0 .5rem;
-  right: 1rem;
-  border-radius: 3px 3px 0 0;
-  box-shadow: 0 -2px 3px 0px rgba(0,0,0,.15);
+.console-button {
+  position: fixed;
+  right: -2px;
+  border: 0;
+  bottom: calc(50% - 20px);
+  padding: 0 .5rem 0 0;
+  border-radius: 3px 0  0 3px;
+  transition: .2s ease;
+}
+
+.console-button:hover {
+  right: 0;
+}
+
+.console-button .material-icons {
+  line-height: 50px;
+  padding: 0;
+  font-size: 30px;
 }
 
 

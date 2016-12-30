@@ -16,11 +16,6 @@ button {
   color: #0092a7;
 }
 
-a:hover,
-button:hover { 
-  opacity: 0.8; 
-}
-
 .bg-blue--light { background: rgba(0, 146, 167, 0.1) }
 
 .active {
