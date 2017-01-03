@@ -1,11 +1,17 @@
 @import '@commitchange/commons.css';
 @import 'styles/console';
 @import 'styles/nav';
+@import 'styles/loader';
 
 html {
   font-size: 16px;
   font-family: 'Roboto', sans-serif;
 }
+
+body {
+  overflow: hidden;
+}
+
 
 i.material-icons {
   font-size: 20px;
@@ -31,7 +37,10 @@ button {
   background: rgba(0, 146, 167, 0.1) 
 }
 
-.bg-blue { background: #0092a7; }
+.loader:before,
+.bg-blue { 
+  background: #0092a7; 
+}
 
 pre {
   overflow: auto;
@@ -44,6 +53,8 @@ pre {
 article {
   width: calc(100% - 300px);
   display: inline-block;
+  overflow: auto;
+  height: 100%;
 }
 
 @media screen and (max-width: 600px) {

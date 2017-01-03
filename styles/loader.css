@@ -1,0 +1,21 @@
+.loader {
+  height: 3px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  overflow: hidden;
+}
+
+.loader:before{
+  display: block;
+  position: absolute;
+  content: "";
+  height: 100%;
+  animation: loader 1.5s linear infinite;
+}
+
+@keyframes loader {
+  from {left: -10%; width: 10%}
+  50% {width: 60%; left: 40%;}
+  to {left: 130%; width: 10%}
+}

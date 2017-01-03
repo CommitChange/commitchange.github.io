@@ -33,7 +33,6 @@ function init() {
     }
   , state.refreshOptions$)
 
-
   // Load resource data from either localStorage cache or from Ajax requests
   const cachedRes = parseJSON(localStorage.getItem('resources$'))
 
@@ -42,6 +41,7 @@ function init() {
 
   // sorts the resource names alphabetically 
   state.resources$ = flyd.map(sortObjByKey, unsortedResources$)
+
 
   // Load the hash on page load, with method/parent/pathname, and load up the selected resource into the state
   const initialLinks = getNavLinks(state.resources$())
@@ -84,6 +84,10 @@ function init() {
 
   state.openConsole$ = flyd.stream()
 
+  state.loading$ = flyd_mergeAll([
+      flyd.map(x => true, state.openConsole$)
+  ])
+
   window.state = state
 
   return state
@@ -98,10 +102,15 @@ const getConsoleQuery = ev => {
 }
 
 function view(state) {
-  return h('div.container.relative.p-2.sm-p-1', [
+  return h('div.relative', [
     nav(state)
   , details(state)
   , queryConsole(state)
+  , h('button.bg-blue.color-white.console-button.sh-1.z-2'
+    , {on: {click: [state.openConsole$, !state.openConsole$()]}}
+    , [h('i.material-icons', state.openConsole$() ? 'keyboard_arrow_right' : 'keyboard_arrow_left')]
+    )
+  , state.loading$() ? h('div.loader') : ''
   ])
 }
 
