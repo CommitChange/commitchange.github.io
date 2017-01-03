@@ -3,11 +3,9 @@
   width: 100%;
   position: fixed;
   top: 0;
-  overflow: hidden;
 }
 
 .loader:before{
-  display: block;
   position: absolute;
   content: "";
   height: 100%;

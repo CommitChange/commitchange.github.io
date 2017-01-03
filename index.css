@@ -1,32 +1,16 @@
 @import '@commitchange/commons.css';
+@import 'styles/colors';
+@import 'styles/typography';
 @import 'styles/console';
 @import 'styles/nav';
 @import 'styles/loader';
-
-html {
-  font-size: 16px;
-  font-family: 'Roboto', sans-serif;
-}
 
 body {
   overflow: hidden;
 }
 
+.active { position: relative; }
 
-i.material-icons {
-  font-size: 20px;
-}
-
-a,
-button {
-  color: #0092a7;
-}
-
-.bg-blue--light { background: rgba(0, 146, 167, 0.1) }
-
-.active {
-  position: relative;
-}
 .active:before { 
   position: absolute;
   content: '';
@@ -37,18 +21,11 @@ button {
   background: rgba(0, 146, 167, 0.1) 
 }
 
-.loader:before,
-.bg-blue { 
-  background: #0092a7; 
-}
-
 pre {
   overflow: auto;
   white-space: pre-wrap;      
   word-wrap: break-word;   
 }
-
-.mono { font-family: 'Roboto Mono', monospace; }
 
 article {
   width: calc(100% - 300px);

@@ -1,0 +1,17 @@
+$blue: #0092a7;
+$blue-light: rgba(0, 146, 167, 0.1); 
+
+.tabs--h li.is-selected { border-bottom-color: $blue  }
+
+a,
+button {
+  color: $blue;
+}
+
+.loader:before,
+.bg-blue { 
+  background: $blue; 
+}
+
+.bg-blue--light { background: $blue-light; }
+

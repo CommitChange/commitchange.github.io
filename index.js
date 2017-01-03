@@ -68,7 +68,7 @@ function init() {
 
   state.consoleQueryResponse$ = flyd.merge(
     flyd.stream({})
-  , flyd_flatMap(getConsoleQuery, state.consoleQuery$))
+  , flyd_flatMap(getConsoleQuery(state), state.consoleQuery$))
 
   state.clickShowMenu$ = flyd.stream()
 
@@ -84,8 +84,11 @@ function init() {
 
   state.openConsole$ = flyd.stream()
 
+  state.consoleResultType$ = flyd.stream()
+
   state.loading$ = flyd_mergeAll([
-      flyd.map(x => true, state.openConsole$)
+      flyd.map(x => true, state.consoleQuery$)
+    , flyd.map(x => false, state.consoleQueryResponse$)
   ])
 
   window.state = state
@@ -94,7 +97,8 @@ function init() {
 }
 
 
-const getConsoleQuery = ev => {
+const getConsoleQuery = state => ev => {
+  if(state.loading$()) return
   ev.preventDefault()
   const path = '/' + ev.target.querySelector('input').value.trim()
   const url = "https://api.commitchange.com"
