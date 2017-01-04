@@ -17,7 +17,8 @@
 
 .console-button {
   position: fixed;
-  right: -2px;
+  right:  0;
+  transform: translateX(2px);
   border: 0;
   bottom: calc(50% - 20px);
   padding: 0 .5rem 0 0;
@@ -26,11 +27,11 @@
 }
 
 .console-button:hover {
-  right: 0;
+  transform: translateX(0px);
 }
 
 .console-button .material-icons {
-  line-height: 50px;
+  line-height: 40px;
   padding: 0;
   font-size: 30px;
 }

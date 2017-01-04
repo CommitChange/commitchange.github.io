@@ -1,10 +1,9 @@
 $blue: #0092a7;
-$blue-light: rgba(0, 146, 167, 0.1); 
+$blue-light: rgba(0, 146, 167, 0.2); 
 
 .tabs--h li.is-selected { border-bottom-color: $blue  }
 
-a,
-button {
+a {
   color: $blue;
 }
 
@@ -14,4 +13,15 @@ button {
 }
 
 .bg-blue--light { background: $blue-light; }
+
+input {
+  border-color: grey;
+}
+
+button {
+  border-color: $blue;
+  background: $blue;
+  color: white;
+}
+
 
