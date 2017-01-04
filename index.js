@@ -110,8 +110,10 @@ function view(state) {
     nav(state)
   , details(state)
   , queryConsole(state)
-  , h('button.console-button.sh-1.z-2'
-    , {on: {click: [state.openConsole$, !state.openConsole$()]}}
+  , h('button.console-button.sh-1.z-2.tooltip--left', {
+        on: {click: [state.openConsole$, !state.openConsole$()]}
+      , attrs: {'data-tooltip': `${state.openConsole$() ? 'Close' : 'Open'} console`}
+      }
     , [h('i.material-icons', state.openConsole$() ? 'keyboard_arrow_right' : 'keyboard_arrow_left')]
     )
   , state.loading$() ? h('div.loader') : ''

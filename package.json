@@ -23,6 +23,7 @@
   },
   "devDependencies": {
     "@commitchange/commons.css": "0.0.7",
+    "@commitchange/tooltip": "0.0.7",
     "autoprefixer": "6.4.1",
     "babel-preset-es2015": "6.16.0",
     "babelify": "7.3.0",

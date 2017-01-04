@@ -1,4 +1,5 @@
 @import '@commitchange/commons.css';
+@import '@commitchange/tooltip';
 @import 'styles/colors';
 @import 'styles/typography';
 @import 'styles/console';
