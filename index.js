@@ -7,7 +7,6 @@ import render from 'ff-core/render'
 import request from 'flyd-ajax'
 import flyd_flatMap from 'flyd/module/flatmap'
 import flyd_mergeAll from 'flyd/module/mergeall'
-import beautifyJSON from 'json-beautify'
 
 import parseJSON from './lib/parse-json'
 import getApiData from './lib/get-api-data'
