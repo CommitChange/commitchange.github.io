@@ -9,7 +9,7 @@ To pass parameters to an endpoint, use either URL query parameters for `GET` req
 
 ### Authentication
 
-Authenticate an account by making a `POST` request to `/login` using a JSON object that has properties for `email` and `password`. You will receive both a JWT and CSRF token. Every subsequent call to a protected endpoint must pass both the JWT and CSRF tokens. The JWT can be passed in the `Authentication` header, or by using a cookie with a name of `'jwt'`.
+Authenticate an account by making a `POST` request to `/auth` using a JSON object that has properties for `email` and `password`. You will receive both a JWT and CSRF token. Every subsequent call to a protected endpoint must pass both the JWT and CSRF tokens. The JWT can be passed in the `Authentication` header, or by using a cookie with a name of `'jwt'`.
 
 In a web application, the JWT token must be stored in an HTTPOnly cookie, while the CSRF token should be stored in `localStorage`.
 
